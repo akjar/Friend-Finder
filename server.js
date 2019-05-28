@@ -1,7 +1,4 @@
-// 1. require the basic npm packages: Express and Path
-
-// require path
-// var path = require("path");
+// 1. require the basic npm packages: Express
 
 // requiring express
 var express = require("express");
@@ -18,7 +15,14 @@ var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-// 3. start server by listening to port
+// 3. require our route files
+
+// require html routes
+require("./app/routing/htmlRoutes")(app);
+
+// require api routes
+
+// 4. start server by listening to port
 
 // start the server
 app.listen(PORT, function() {

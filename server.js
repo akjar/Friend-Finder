@@ -17,10 +17,11 @@ app.use(express.json());
 
 // 3. require our route files
 
+// require api routes
+require("./app/routing/apiRoutes")(app);
+
 // require html routes
 require("./app/routing/htmlRoutes")(app);
-
-// require api routes
 
 // 4. start server by listening to port
 

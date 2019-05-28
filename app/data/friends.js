@@ -1,4 +1,5 @@
-var freinds = [
+// create data
+var friends = [
     {
         "name":"Martin",
         "photo":"https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -122,3 +123,5 @@ var freinds = [
     },
 ]
 
+// export data so can be used in toher files
+module.exports = friends;

@@ -10,6 +10,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,11 +25,11 @@
         <form>
             <div class="form-group">
                 <label for="name">Name (Required)</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                <input type="text" class="form-control" id="name" placeholder="Enter Name" required>
             </div>
             <div class="form-group">
                 <label for="photo">Photo Link (Required)</label>
-                <input type="text" class="form-control" id="photo" placeholder="Link to Photo">
+                <input type="text" class="form-control" id="photo" placeholder="Link to Photo" required>
             </div>
         </form>
         <hr>
@@ -36,7 +38,7 @@
     <div id="questions" class="container">
         <h3>Question 1</h3>
         <p>Mountains over beach?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q1" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -48,7 +50,7 @@
         <br>
         <h3>Question 2</h3>
         <p>Summer over winter?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q2" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -60,7 +62,7 @@
         <br>
         <h3>Question 3</h3>
         <p>Dogs over cats?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q3" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -72,7 +74,7 @@
         <br>
         <h3>Question 4</h3>
         <p>Baseball over Football?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q4" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -84,7 +86,7 @@
         <br>
         <h3>Question 5</h3>
         <p>Giants over A's?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q5" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -96,7 +98,7 @@
         <br>
         <h3>Question 6</h3>
         <p>49ers over Raiders?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q6" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -108,7 +110,7 @@
         <br>
         <h3>Question 7</h3>
         <p>Northern CA over Southern CA?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q7" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -120,7 +122,7 @@
         <br>
         <h3>Question 8</h3>
         <p>Video games over card/board games?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q8" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -132,7 +134,7 @@
         <br>
         <h3>Question 9</h3>
         <p>iPhone over other smart phones?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q9" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -144,7 +146,7 @@
         <br>
         <h3>Question 10</h3>
         <p>PC over Mac?</p>
-        <select class="custom-select custom-select-sm col-md-2 mb-2">
+        <select data-placeholder="" id="q10" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -154,13 +156,39 @@
         </select>
         <br>
         <br>
-        <button type="button" class="btn btn-primary btn-lg btn-block"><i class="fas fa-check-circle"></i> Submit</button>
+        <button type="button" id="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-check-circle"></i>
+            Submit</button>
         <hr>
     </div>
 
     <div class="container">
         <p><a href="#">API Friends List </a> | <a href="#">GitHub Repo</a></p>
     </div>
+
+    <script type="text/javascript">
+        // setting a click event to the submit button
+        document.querySelector("#submit").addEventListener("click", function (event) {
+            event.preventDefault();
+            // grabbing the user data
+            var userData = {
+                name: document.querySelector("#name").value.trim(),
+                photo: document.querySelector("#photo").value.trim(),
+                scores: [
+                    document.querySelector("#q1").value,
+                    document.querySelector("#q2").value,
+                    document.querySelector("#q3").value,
+                    document.querySelector("#q4").value,
+                    document.querySelector("#q5").value,
+                    document.querySelector("#q6").value,
+                    document.querySelector("#q7").value,
+                    document.querySelector("#q8").value,
+                    document.querySelector("#q9").value,
+                    document.querySelector("#q10").value
+                ]
+            };
+            console.log(userData);
+        });
+    </script>
 </body>
 
 </html>

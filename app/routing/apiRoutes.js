@@ -13,4 +13,44 @@ module.exports = function(app) {
         res.json(friends);
     });
     
+    // posting the data
+    app.post("/api/friends", function(req, res) {
+        // create a variable 
+        var bestMatch = {
+            name: "",
+            photo: "",
+            friendDifference: 1000
+        };
+
+        // get results from the survey
+        var userData = req.body;
+        var userScores = data.scores;
+
+        // create a variable for the score difference
+        var totalDifference = 0;
+
+        // go through all of the friends
+        for (var i = 0; i < friends.length; i++) {
+            totalDifference = 0;
+
+            // go through the friends scores
+            for (var j = 0; j < friends[i].scores[j]; j++) {
+
+                // calculate the difference of scores
+                totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+
+                // if the new difference socre is less then the current match then change the match with the new friens
+                if (totalDifference <=bestMatch.friendDifference) {
+                    bestMatch.name = friends[i].name;
+                    bestMatch.photo = friends[i].photo;
+                    bestMatch.friendDifference = totalDifference;
+                }
+            }
+        }
+        // push the datat to the data base
+        friends.push(userData);
+
+        // turn best match into json format
+        res.json(bestMatch);
+    })
 };

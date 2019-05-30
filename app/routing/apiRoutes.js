@@ -24,7 +24,7 @@ module.exports = function(app) {
 
         // get results from the survey
         var userData = req.body;
-        var userScores = data.scores;
+        var userScores = userData.scores;
 
         // create a variable for the score difference
         var totalDifference = 0;
@@ -40,7 +40,7 @@ module.exports = function(app) {
                 totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
 
                 // if the new difference socre is less then the current match then change the match with the new friens
-                if (totalDifference <=bestMatch.friendDifference) {
+                if (totalDifference <= bestMatch.friendDifference) {
                     bestMatch.name = friends[i].name;
                     bestMatch.photo = friends[i].photo;
                     bestMatch.friendDifference = totalDifference;

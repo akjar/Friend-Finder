@@ -154,8 +154,7 @@
         </select>
         <br>
         <br>
-        <button type="button" id="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-check-circle"></i>
-            Submit</button>
+        <button type="button" id="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-check-circle"></i>Submit</button>
         <hr>
     </div>
 
@@ -163,10 +162,26 @@
         <p><a href="#">API Friends List </a> | <a href="#">GitHub Repo</a></p>
     </div>
 
+    <div class="modal fade" id="resultModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Best Match!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         // setting a click event to the submit button
         document.querySelector("#submit").addEventListener("click", function (event) {
-            event.preventDefault();
             // grabbing the user data
             var userData = {
                 name: document.querySelector("#name").value.trim(),
@@ -193,7 +208,8 @@
                     'Content-Type': 'application/json',
                 }
             })
-            .then(response => response.json())
+                .then(response => response.json());
+                document.getElementById("#resultModal").modal();
         });
     </script>
 </body>

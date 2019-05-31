@@ -184,7 +184,6 @@
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     <script type="text/javascript">
         // setting a click event to the submit button
         $("#submit").on("click", function () {
@@ -212,16 +211,7 @@
                 $("#matchName").text(data.name);
                 $("#matchPhoto").attr("src", data.photo);
                 $("#resultModal").modal("toggle");
-            })
-            // fetch("/api/friends", {
-            //     method: "POST",
-            //     body: JSON.stringify(userData),
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     }
-            // })
-            // .then(response => response.json());
-            
+            })            
         });
     </script>
 </body>

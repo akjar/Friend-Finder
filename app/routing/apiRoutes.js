@@ -1,9 +1,13 @@
+// =============================================================================
 // 1. load the data
+// =============================================================================
 
 // require the data from the friends file
 var friends = require("../data/friends.js");
 
+// =============================================================================
 // 2. make routes to the different html pages
+// =============================================================================
 
 // access app from other file
 module.exports = function(app) {
@@ -22,7 +26,7 @@ module.exports = function(app) {
             friendDifference: 1000
         };
 
-        // get results from the survey
+        // create variables for results from the survey
         var userData = req.body;
         var userScores = userData.scores;
 
@@ -31,7 +35,6 @@ module.exports = function(app) {
 
         // go through all of the friends
         for (var i = 0; i < friends.length; i++) {
-            totalDifference = 0;
 
             // go through the friends scores
             for (var j = 0; j < friends[i].scores[j]; j++) {
@@ -39,7 +42,7 @@ module.exports = function(app) {
                 // calculate the difference of scores
                 totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
 
-                // if the new difference socre is less then the current match then change the match with the new friens
+                // if the new difference socre is less then the current match then change the match with the new friends
                 if (totalDifference <= bestMatch.friendDifference) {
                     bestMatch.name = friends[i].name;
                     bestMatch.photo = friends[i].photo;
@@ -47,7 +50,7 @@ module.exports = function(app) {
                 }
             }
         }
-        // push the datat to the data base
+        // push the data to the database
         friends.push(userData);
 
         // turn best match into json format

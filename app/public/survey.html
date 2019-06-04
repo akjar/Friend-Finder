@@ -1,3 +1,7 @@
+<!-- ======================================================================= -->
+<!-- Create HTML head -->
+<!-- ======================================================================= -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,19 +16,26 @@
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 
+<!-- ======================================================================= -->
+<!-- Create body with title, questions, button, modal, and js to run the app -->
+<!-- ======================================================================= -->
+
 <body>
+    <!-- title -->
     <div id="title" class="container">
         <h1>Survey Questions</h1>
         <hr>
     </div>
-
+    <!-- start of the survey -->
     <div id="about" class="container">
         <h3>About Me</h3>
         <form>
+            <!-- fill in your name -->
             <div class="form-group">
                 <label for="name">Name (Required)</label>
                 <input type="text" class="form-control" id="name" placeholder="Enter Name" required>
             </div>
+            <!-- sumbit a photo -->
             <div class="form-group">
                 <label for="photo">Photo Link (Required)</label>
                 <input type="text" class="form-control" id="photo" placeholder="Link to Photo" required>
@@ -32,10 +43,12 @@
         </form>
         <hr>
     </div>
-
+    <!-- survey questions -->
     <div id="questions" class="container">
+        <!-- question 1 -->
         <h3>Question 1</h3>
         <p>Mountains over beach?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q1" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -46,8 +59,10 @@
         </select>
         <br>
         <br>
+        <!-- question 2 -->
         <h3>Question 2</h3>
         <p>Summer over winter?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q2" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -58,8 +73,10 @@
         </select>
         <br>
         <br>
+        <!-- question 3 -->
         <h3>Question 3</h3>
         <p>Dogs over cats?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q3" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -70,8 +87,10 @@
         </select>
         <br>
         <br>
+        <!-- question 4 -->
         <h3>Question 4</h3>
         <p>Baseball over Football?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q4" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -82,8 +101,10 @@
         </select>
         <br>
         <br>
+        <!-- question 5 -->
         <h3>Question 5</h3>
         <p>Giants over A's?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q5" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -94,8 +115,10 @@
         </select>
         <br>
         <br>
+        <!-- question 6 -->
         <h3>Question 6</h3>
         <p>49ers over Raiders?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q6" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -106,8 +129,10 @@
         </select>
         <br>
         <br>
+        <!-- question 7 -->
         <h3>Question 7</h3>
         <p>Northern CA over Southern CA?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q7" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -118,8 +143,10 @@
         </select>
         <br>
         <br>
+        <!-- question 8 -->
         <h3>Question 8</h3>
         <p>Video games over card/board games?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q8" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -130,8 +157,10 @@
         </select>
         <br>
         <br>
+        <!-- question 9 -->
         <h3>Question 9</h3>
         <p>iPhone over other smart phones?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q9" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -142,8 +171,10 @@
         </select>
         <br>
         <br>
+        <!-- question 10 -->
         <h3>Question 10</h3>
         <p>PC over Mac?</p>
+        <!-- options for answer -->
         <select data-placeholder="" id="q10" class="custom-select custom-select-sm col-md-2 mb-2">
             <option selected>Select an option</option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -154,14 +185,17 @@
         </select>
         <br>
         <br>
+        <!-- submit button -->
         <button type="button" id="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-check-circle"></i> Submit</button>
         <hr>
     </div>
 
+    <!-- links -->
     <div class="container">
-        <p><a href="#">API Friends List </a> | <a href="#">GitHub Repo</a></p>
+        <p><a href="https://desolate-stream-94607.herokuapp.com/api/friends">API Friends List </a> | <a href="https://github.com/akjar/Friend-Finder">GitHub Repo</a></p>
     </div>
 
+    <!-- bootsrap modal -->
     <div class="modal" id="resultModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -182,8 +216,15 @@
         </div>
       </div>
 
+    <!-- =================================================================== -->
+    <!-- JavaScript to get the info in the survey and post it -->
+    <!-- =================================================================== -->
+
+    <!-- jquery CDN -->
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+    <!-- bootstrap CDN -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- javascript -->
     <script type="text/javascript">
         // setting a click event to the submit button
         $("#submit").on("click", function () {
@@ -204,12 +245,16 @@
                     $("#q10").val()
                 ]
             };
-            console.log(userData);
+            // creating a variable for the html link
             var currentURL = window.location.origin;
+            // posting the data collected from the survey into the modal
             $.post(currentURL + "/api/friends", userData, function(data) {
                 console.log(data);
+                // put name in name
                 $("#matchName").text(data.name);
+                // put photo in photo
                 $("#matchPhoto").attr("src", data.photo);
+                // dsiplay modal
                 $("#resultModal").modal("toggle");
             })            
         });

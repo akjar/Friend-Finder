@@ -8,13 +8,13 @@
 ## Instructions
 
 1. Click the survey button on the home page to bring you to the survey.
-    ![Survey_Button](images/1.png)
+    - ![Survey_Button](images/1.png)
 
 2. Fill in your name and a photo link (required).
-    ![About_Me](images/2.png)
+    - ![About_Me](images/2.png)
 
 3. Fill out the survey and click submit.
-    ![Submit_Button](images/3.png)
+    - ![Submit_Button](images/3.png)
 
 4. Find out who your best match is!
-    ![Match](images/4.png)
+    - ![Match](images/4.png)

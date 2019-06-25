@@ -186,35 +186,37 @@
         <br>
         <br>
         <!-- submit button -->
-        <button type="button" id="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-check-circle"></i> Submit</button>
+        <button type="button" id="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#resultModal"><i class="fas fa-check-circle"></i>
+            Submit</button>
         <hr>
     </div>
 
     <!-- links -->
     <div class="container">
-        <p><a href="https://desolate-stream-94607.herokuapp.com/api/friends">API Friends List </a> | <a href="https://github.com/akjar/Friend-Finder">GitHub Repo</a></p>
+        <p><a href="https://desolate-stream-94607.herokuapp.com/api/friends">API Friends List </a> | <a
+                href="https://github.com/akjar/Friend-Finder">GitHub Repo</a></p>
     </div>
 
     <!-- bootsrap modal -->
     <div class="modal" id="resultModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Best Match!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Best Match!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2 id="matchName"></h2>
+                    <img id="matchPhoto" src="" alt="" height="350" width="350">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <h2 id="matchName"></h2>
-              <img id="matchPhoto" src="" alt="" height="350" width="350">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
     <!-- =================================================================== -->
     <!-- JavaScript to get the info in the survey and post it -->
@@ -223,40 +225,46 @@
     <!-- jquery CDN -->
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
     <!-- bootstrap CDN -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <!-- javascript -->
     <script type="text/javascript">
         // setting a click event to the submit button
-        $("#submit").on("click", function () {
+        document.querySelector("#submit").addEventListener("click", function () {
+            event.preventDefault();
             // grabbing the user data
             var userData = {
-                name: $("#name").val(),
-                photo: $("#photo").val(),
+                name: document.querySelector("#name").value,
+                photo: document.querySelector("#photo").value,
                 scores: [
-                    $("#q1").val(),
-                    $("#q2").val(),
-                    $("#q3").val(),
-                    $("#q4").val(),
-                    $("#q5").val(),
-                    $("#q6").val(),
-                    $("#q7").val(),
-                    $("#q8").val(),
-                    $("#q9").val(),
-                    $("#q10").val()
+                    document.querySelector("#q1").value,
+                    document.querySelector("#q2").value,
+                    document.querySelector("#q3").value,
+                    document.querySelector("#q4").value,
+                    document.querySelector("#q5").value,
+                    document.querySelector("#q6").value,
+                    document.querySelector("#q7").value,
+                    document.querySelector("#q8").value,
+                    document.querySelector("#q9").value,
+                    document.querySelector("#q10").value
                 ]
             };
             // creating a variable for the html link
-            var currentURL = window.location.origin;
+            // var currentURL = window.location.origin;
             // posting the data collected from the survey into the modal
-            $.post(currentURL + "/api/friends", userData, function(data) {
-                console.log(data);
-                // put name in name
-                $("#matchName").text(data.name);
-                // put photo in photo
-                $("#matchPhoto").attr("src", data.photo);
-                // dsiplay modal
-                $("#resultModal").modal("toggle");
-            })            
+            fetch("/api/friends", {
+                method: "POST",
+                body: JSON.stringify(userData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('#matchName').innerHTML = data.name
+                document.querySelector('#matchPhoto').setAttribute('src', data.photo)
+            })
         });
     </script>
 </body>

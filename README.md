@@ -1,4 +1,7 @@
 # Friend-Finder
+
+![FriendFinder](friends.PNG)
+
 - This full-stack site which will take in a users result from a survey, then the app compares the users answers with those from other      users. The app will then display the name and picture of the user with the best overall match.
 
 - This full-stack site uses Heroku, GitHub, Node, Express, JQuery, JavaScript, HTML, and Bootstrap
